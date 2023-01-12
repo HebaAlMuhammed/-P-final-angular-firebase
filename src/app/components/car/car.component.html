@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <h4 class="container text-center me-5">Müsait Arabalar</h4>
+        <hr>
+
+
+        <table class="table table-striped">
+          <thead class="bg-dark text-white">
+            <th>Marka</th>
+            <th>Ücret</th>
+            <th class ="row-ms-2">İşlem</th>
+          </thead>
+          <tbody>
+            <tr  *ngFor="let araba of mevcutArabalar">
+              <td>{{araba.marka}}</td>
+              <td>{{araba.ucret}}</td>
+              <td>
+                <button class="btn btn-warning  btn-sm " (click)="TamamIptal(araba,true)">Kirala</button>
+                <button class="btn btn-danger btn-sm ms-2 " (click)="ArabaSil((araba))">Sil</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="text-danger" *ngIf="mevcutArabalar.length==0">listede araba bulunmadı</p>
+      </div>
+      <br>
+
+
+      <div class="col-md-6">
+        <h4 class="container text-center me-5">kıra Edilmiş Arabalar</h4>
+        <hr>
+       
+        <table class="table table-striped">
+          <thead class="bg-secondary text-white">
+            <th>Marka</th>
+            <th>Ücret</th>
+            <th>İşlem</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let araba of eskiArabalar">
+              <td>{{araba.marka}}</td>
+              <td>{{araba.ucret}}</td>
+              <td>
+                <button class="btn btn-success btn-sm " (click)="TamamIptal(araba,false)">Geri Al</button>
+                <button class="btn btn-danger btn-sm ms-2" (click)="ArabaSil((araba))">Sil</button>
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-danger ms-2" *ngIf="eskiArabalar.length==0">listede araba bulunmadı</p>
+      </div>
+    </div>
+    <hr>
+    
+    
+    <div class="container text-center mt-5">
+     
+      <div class=" row">
+        <div class="col-4"></div>
+        <div class="col-4">
+        <form [formGroup]="frm" (ngSubmit)="Kaydet()">
+         
+            <div class="card-header bg-info text-white ">
+              <h4>Yeni Kayıt</h4>
+            </div>
+           
+              <label>Marka</label>
+              <input type="text" class="form-control" formControlName="marka">
+              <label>Ücret</label>
+              <input type="text"class="form-control" rows="3" formControlName="ucret">
+             
+            
+           
+              <input type="submit" class="btn btn-outline-primary mt-3" value="Kaydet">
+           
+         
+        </form>
+      </div>
+    </div>
+  </div> 
+</div>
+  <p>
+
+
+
+  </p>
+  
+  
+  
+  
+  
+    
