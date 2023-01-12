@@ -5,5 +5,5 @@ export interface Uye {
   tel?: string;
   adres?: string;
   foto?: string;
-  dogurla: boolean;
+ 
 }
